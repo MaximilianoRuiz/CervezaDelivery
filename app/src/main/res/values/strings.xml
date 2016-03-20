@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Cerveza Delivery</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_main_list">MainListActivity</string>
+    <string name="title_activity_principal">PrincipalActivity</string>
 </resources>
