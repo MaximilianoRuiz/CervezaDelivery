@@ -8,10 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.maxi.cervezadelivery.R;
-import com.example.maxi.cervezadelivery.adapters.ListBeerAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.maxi.cervezadelivery.data.firebase.FirebaseBeer;
+import com.example.maxi.cervezadelivery.data.firebase.FirebaseInterface;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -34,13 +32,19 @@ public class PrincipalFragment extends Fragment {
     }
 
     private void initWidgets(View view){
-        List<String> list = new ArrayList<>();
-        list.add("Hola");
-        list.add("Hola");
-        list.add("Hola");
-        list.add("Hola");
-
         lvBeers = (ListView) view.findViewById(R.id.lvBeers);
-        lvBeers.setAdapter(new ListBeerAdapter(getContext(), R.layout.adapter_list_beer, list));
+
+        addAdapters();
+    }
+
+    private void addAdapters() {
+        FirebaseInterface firebaseInterface = new FirebaseBeer(getContext(), getResources());
+        firebaseInterface.setListAdapter(lvBeers);
+
+        addActionListeners();
+    }
+
+    private void addActionListeners() {
+
     }
 }
